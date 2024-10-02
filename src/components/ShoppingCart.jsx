@@ -44,7 +44,7 @@ const ShoppingCart = () => {
         </p>
         <div className="border-b">
           <div className="flex justify-center">
-            <img className="w-52" src="/public/logo.png" alt="logo" />
+            <img className="w-52" src="/logo.png" alt="logo" />
           </div>
         </div>
 

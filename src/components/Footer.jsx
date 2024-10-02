@@ -43,7 +43,7 @@ function Footer() {
       <div className="mt-8 border-t border-gray-300 pt-4 flex flex-col lg:flex-row justify-between items-center text-gray-600">
         <div className="flex flex-col items-center lg:items-start space-y-2">
           <span className="text-xl font-semibold">
-            <img className="w-48" src="/public/logo.png" alt="logo"/>
+            <img className="w-48" src="/logo.png" alt="logo"/>
           </span>
           <span>©️ Copyright 2024. All Rights Reserved</span>
         </div>

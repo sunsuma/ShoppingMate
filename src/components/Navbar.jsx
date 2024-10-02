@@ -42,7 +42,7 @@ function Navbar() {
           <Link to={"/"} className="btn btn-ghost text-xl">
             <img
               className="w-36 h-12 object-cover"
-              src="/public/logo.png"
+              src="/logo.png"
               alt="logo"
             />
           </Link>
