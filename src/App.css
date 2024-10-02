@@ -1,0 +1,8 @@
+body.dark{
+  background-color: rgb(78, 77, 77);
+  color: white;
+}
+body.light{
+  background-color: #fff;
+  color: #111;
+}
