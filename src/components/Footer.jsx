@@ -45,7 +45,7 @@ function Footer() {
           <span className="text-xl font-semibold">
             <img className="w-48" src="/logo.png" alt="logo"/>
           </span>
-          <span>©️ Copyright 2024. All Rights Reserved</span>
+          <span>©️ Copyright 2024 SunsumaBasumatary. All Rights Reserved</span>
         </div>
         <div className="mt-4 lg:mt-0">
           <img src="/payment.png" width={"300px"} alt="payment" />
