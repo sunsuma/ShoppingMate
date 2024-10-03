@@ -1,54 +1,128 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import '../App.css';
+import "../App.css";
 import { useSelector } from "react-redux";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
-  const [theme, setTheme] = useState(
-    localStorage.getItem('theme') || 'light'
-  );
+  const [showMenu, setShowMenu] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  const menuRef = useRef(null);
 
   // set theme and store it in localStorage
   useEffect(() => {
     document.body.classList = theme;
-    localStorage.setItem('theme', theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // Add scroll event listner to check y-axis position 
-  useEffect(()=>{
-    const handleScroll = () =>{
-      if(window.scrollY>90){
-        setIsSticky(true)
-      }else{
-        setIsSticky(false)
+  // Add scroll event listner to check y-axis position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 90) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
       }
-    }
+    };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
-    // clear up the event listner 
+    // clear up the event listner
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-    }
-  },[])
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const cartItems = useSelector((state) => state.cart.cartItems);
 
+  // Disable scrolling on background when menu is open
+  useEffect(() => {
+    if (showMenu) {
+      document.body.style.overflow = "hidden"; // Disable scroll
+    } else {
+      document.body.style.overflow = "auto"; // Enable scroll
+    }
+
+    return () => {
+      document.body.style.overflow = "auto"; // Ensure scroll is enabled on cleanup
+    };
+  }, [showMenu]);
   return (
     <div>
-      <div className={`navbar bg-gray-400 px-20 transition-all duration-300 ${isSticky?'fixed top-0 z-10 shadow-lg bg-opacity-70 backdrop-blur-sm':'' }`}>
+      <div
+        className={`navbar bg-gray-400 md:px-20 transition-all duration-300 ${
+          isSticky
+            ? "fixed top-0 left-0 right-0 z-40 shadow-lg bg-opacity-90"
+            : ""
+        }`}
+      >
         <div className="flex-1 items-center">
           <Link to={"/"} className="btn btn-ghost text-xl">
             <img
-              className="w-36 h-12 object-cover"
+              className="w-36 ml-10 md:ml-0 h-12 object-cover"
               src="/logo.png"
               alt="logo"
             />
           </Link>
         </div>
 
-        <div>
+        {/* menu */}
+        <div className="md:hidden absolute" onClick={() => setShowMenu(true)}>
+          <MenuIcon style={{ fontSize: "35" }} />
+        </div>
+
+        {/* Full-screen Menu */}
+        {showMenu && (
+          <div
+            ref={menuRef}
+            className="fixed inset-0 bg-gray-800 bg-opacity-95 z-50 flex flex-col"
+          >
+            <div className="w-full h-16 bg-opacity-75 bg-white">
+              <img className="w-32 mx-10" src="/logo.png" alt="logo" />
+            </div>
+            <button
+              className="absolute top-4 right-5 text-white"
+              onClick={() => setShowMenu(false)}
+            >
+              <CloseIcon style={{ fontSize: "35px" }} />
+            </button>
+            <div className="w-screen flex flex-col top-20 left-10 absolute text-white text-2xl">
+              <Link
+                to="/"
+                className=" mb-5 "
+                onClick={() => setShowMenu(false)}
+              >
+                Home
+              </Link>
+              <Link
+                to="/products"
+                className="mb-5"
+                onClick={() => setShowMenu(false)}
+              >
+                Products
+              </Link>
+              <Link
+                to="/about"
+                className="mb-5"
+                onClick={() => setShowMenu(false)}
+              >
+                About
+              </Link>
+              <Link
+                to="/contact"
+                className="mb-5"
+                onClick={() => setShowMenu(false)}
+              >
+                Contact
+              </Link>
+            </div>
+          </div>
+        )}
+
+        <div className="hidden md:block">
           <Link to={"/"} className="btn btn-ghost text-lg">
             Home
           </Link>
@@ -63,7 +137,8 @@ function Navbar() {
           </Link>
         </div>
 
-        <div className="flex-none">
+        {/* right side */}
+        <div className="flex gap-2">
           <div className="dropdown dropdown-end">
             <Link to={"/cart"}>
               <div
@@ -86,7 +161,9 @@ function Navbar() {
                       d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                     />
                   </svg>
-                  <span className="badge badge-sm indicator-item">{cartItems.length}</span>
+                  <span className="badge badge-sm indicator-item">
+                    {cartItems.length}
+                  </span>
                 </div>
               </div>
             </Link>
@@ -129,7 +206,7 @@ function Navbar() {
             <input
               type="checkbox"
               className="theme-controller"
-              onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              onChange={() => setTheme(theme === "light" ? "dark" : "light")}
             />
 
             {/* Sun icon */}

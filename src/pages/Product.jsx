@@ -43,26 +43,26 @@ const Product = () => {
         <Link to={"/"}>Home</Link> /<Link to={"/products"}>Products</Link> / Product
       </div>
       <div className="w-[90%] flex flex-col md:flex-row mx-auto p-4 gap-8">
-        <div className="flex md:w-1/2 gap-10">
-          <div className="space-y-4">
+        <div className="flex md:w-1/2 gap-10 h-72 md:h-[550px]">
+          <div className="space-y-4 w-24 md:w-32">
             <img
-              className="w-32 h-32 object-cover object-left-top"
+              className="w-[100%] h-20 md:w-32 md:h-32 object-cover object-left-top"
               src={item.img}
               alt=""
               onClick={() => setSelectedImg(item.img)}
             />
             <img
-              className="w-32 h-32 object-cover object-left-top"
+              className="w-[100%] h-20 md:w-32 md:h-32 object-cover object-left-top"
               src={item.img2}
               alt=""
               onClick={() => setSelectedImg(item.img2)}
             />
           </div>
-          <div className="aspect-w-3 h-[75%]">
+          <div className="w-full bg-black h-full">
             <img
               src={selectedImg}
               alt="Selected product"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
             />
           </div>
         </div>
@@ -95,14 +95,14 @@ const Product = () => {
           </div>
 
           <button
-            className="btn btn-info w-[50%] text-white py-2 px-4 flex items-center justify-center"
+            className="btn btn-info w-[50%] text-white py-2 px-4 flex flex-col items-center justify-center"
             onClick={handleAddToCart}
           >
             <AddShoppingCartIcon size={20} />
             <span className="ml-2">ADD TO CART</span>
           </button>
 
-          <div className="flex space-x-4 text-blue-500">
+          <div className="flex flex-col md:flex-row gap-4 md:gap-0 md:space-x-4 text-blue-500">
             <button className="flex items-center space-x-1">
               <FavoriteBorderIcon size={20} />
               <span>ADD TO WISH LIST</span>

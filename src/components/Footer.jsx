@@ -2,9 +2,9 @@ function Footer() {
   return (
     <footer className="bg-gray-100 py-8 mt-8 px-10">
       <hr className="border-gray-300 mb-6" />
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-gray-700">
+      <div className="container mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 text-gray-700">
         <div className="space-y-4">
-          <h1 className="text-lg font-semibold">Categories</h1>
+          <h1 className="text-lg font-semibold underline">Categories</h1>
           <ul className="space-y-2">
             <li className="hover:text-gray-900 cursor-pointer">Women</li>
             <li className="hover:text-gray-900 cursor-pointer">Men</li>
@@ -14,7 +14,7 @@ function Footer() {
           </ul>
         </div>
         <div className="space-y-4">
-          <h1 className="text-lg font-semibold">Links</h1>
+          <h1 className="text-lg font-semibold underline">Links</h1>
           <ul className="space-y-2">
             <li className="hover:text-gray-900 cursor-pointer">FAQ</li>
             <li className="hover:text-gray-900 cursor-pointer">Pages</li>
@@ -24,7 +24,7 @@ function Footer() {
           </ul>
         </div>
         <div className="space-y-4">
-          <h1 className="text-lg font-semibold">About</h1>
+          <h1 className="text-lg font-semibold underline">About</h1>
           <p className="text-gray-600">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam
             porro aperiam aliquid accusamus voluptatem repudiandae architecto
@@ -32,7 +32,7 @@ function Footer() {
           </p>
         </div>
         <div className="space-y-4">
-          <h1 className="text-lg font-semibold">Contact</h1>
+          <h1 className="text-lg font-semibold underline">Contact</h1>
           <p className="text-gray-600">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam
             porro aperiam aliquid accusamus voluptatem repudiandae architecto

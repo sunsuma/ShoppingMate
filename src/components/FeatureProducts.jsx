@@ -43,8 +43,8 @@ function FeatureProducts({ type }) {
   return (
     <div className="py-8 px-10">
       <div className="text-center mb-8 flex justify-between items-center ">
-        <h1 className="w-[25%] uppercase text-2xl font-bold text-gray-400 ">{type} Products</h1>
-        <p className="w-[60%] text-gray-400 mt-2 text-justify">
+        <h1 className="w-full md:w-[25%] uppercase text-2xl font-bold text-gray-400 ">{type} Products</h1>
+        <p className="w-[60%] hidden md:block text-gray-400 mt-2 text-justify">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus perferendis odit quia, quisquam quas voluptate aspernatur rem accusantium libero voluptatibus corporis necessitatibus reiciendis sunt alias harum nam voluptatum officiis! At?
         </p>
       </div>

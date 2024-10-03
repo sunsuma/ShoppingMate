@@ -51,21 +51,21 @@ const ShoppingCart = () => {
         <h2 className="text-2xl font-semibold mb-4">YOUR BAG</h2>
       </header>
 
-      <main className="flex justify-between">
-        <div className="w-full">
+      <main className="flex flex-col md:flex-row justify-between">
+        <div className="w-screen">
           <div className="w-[90%] flex justify-between mb-4">
+          <div className="flex flex-col md:flex-row gap-5 md:gap-10 justify-center items-center">
             <Link to={"/products"}>
               <button className="text-sm underline">CONTINUE SHOPPING</button>
             </Link>
-            <div>
-              <button className="font-semibold mr-4">
+            
+              <p className="font-semibold mr-4">
                 Shopping Bag ({cartItems.length})
-              </button>
-              <button className="text-gray-500">Your Wishlist (0)</button>
+              </p>
+              <p className="text-gray-500">Your Wishlist (0)</p>
             </div>
-            <button className="bg-black text-white px-4 py-2 text-sm">
-              CHECKOUT NOW
-            </button>
+            <button className="btn btn-active btn-neutral">CHECKOUT NOW</button>
+            
           </div>
 
           {cartItems.length === 0 ? (
@@ -86,7 +86,7 @@ const ShoppingCart = () => {
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="w-24 h-24 object-cover"
+                  className="w-24 md:h-24 object-cover"
                 />
                 <div className="ml-4 flex-grow">
                   <div className="flex justify-between">
@@ -119,7 +119,8 @@ const ShoppingCart = () => {
           </div>
         </div>
 
-        <div className="md:w-1/2">
+        {/* right in md device and bottom in small device */}
+        <div className="md:w-1/2 mt-10 md:mt-0">
           <div className="bg-gray-100 p-4">
             <h3 className="font-semibold mb-4 text-gray-500">ORDER SUMMARY</h3>
             <div className="flex justify-between mb-2">
@@ -146,17 +147,15 @@ const ShoppingCart = () => {
                 ₹
               </span>
             </div>
-            <button className="w-full bg-black text-white py-2 mt-4">
-              CHECKOUT NOW
-            </button>
+            <button className="btn btn-active btn-neutral w-full mt-5">CHECKOUT NOW</button>
           </div>
-          <button className="text-2xl text-red-600" onClick={handleResetCart}>
+          <button className="text-2xl mt-5 text-red-600" onClick={handleResetCart}>
             Reset
           </button>
           <div className="mt-4">
             <p className="text-sm mb-2">Payment methods</p>
             <div className="flex space-x-2">
-              <img src="/public/payment.png" alt="payment" />
+              <img src="/payment.png" alt="payment" />
             </div>
           </div>
         </div>

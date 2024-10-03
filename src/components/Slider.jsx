@@ -29,18 +29,18 @@ function Slider() {
   }, [currentSlide]);
 
   return (
-    <div className="relative w-full h-[80vh] mt-5">
-      <div className="mx-10 overflow-hidden">
+    <div className="relative w-full md:h-[80vh] mt-5">
+      <div className="sm:mx-10 overflow-hidden">
         <div
-          className="w-full flex transition-transform ease-in-out duration-700"
+          className="w-full md:h-[50%] flex transition-transform ease-in-out duration-700"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {data.map((image, index) => (
-            <div key={index} className="flex-shrink-0 w-full">
+            <div key={index} className="flex-shrink-0 h-60 md:h-full w-full">
               <img
                 src={image}
                 alt={`Slide ${index}`}
-                className="w-full h-[80vh] object-cover object-left-top"
+                className="w-full h-60 md:h-[80vh] object-cover object-left-top"
               />
             </div>
           ))}

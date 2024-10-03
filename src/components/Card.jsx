@@ -5,7 +5,7 @@ function Card({ item }) {
   return (
     <Link to={`/product/${item.id}`} state={{ item }} className="transform transition-transform duration-200 hover:scale-105">
       <div className="bg-white border border-gray-200 rounded-lg shadow-md mb-10 overflow-hidden">
-        <div className="relative h-[50%]">
+        <div className="relative h-[90%]">
           {item.isNew && (
             <span className="absolute top-2 left-2 bg-green-500 text-white text-xs font-semibold py-1 px-2 rounded z-10">
               New Season

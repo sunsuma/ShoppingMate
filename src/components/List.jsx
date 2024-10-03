@@ -73,7 +73,7 @@ function List({ showFilter }) {
   return (
     <div
       className={`w-full p-4 ${
-        showFilter ? "grid grid-cols-4 gap-4" : "grid grid-cols-5 gap-3"
+        showFilter ? " md:grid md:grid-cols-4 gap-4" : "md:grid grid-cols-5 gap-3"
       }`}
     >
       {data.map((item) => (
